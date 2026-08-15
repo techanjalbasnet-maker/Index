@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For You Baby ❤️</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Inter:opsz,wght@14..32,500&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <style>
+
+        /* ==============================
+           FIRST SCREEN
+           ============================== */
+
+        #sadPage {
+
+            margin: 0;
+            width: 100%;
+            height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            color: white;
+
+            overflow: hidden;
+
+            background: linear-gradient(
+                -45deg,
+                #ff9a9e,
+                #fad0c4,
+                #fbc2eb,
+                #f8cdda
+            );
+
+            background-size: 400% 400%;
+
+            animation: gradientMove 15s ease infinite;
+
+            position: relative;
+        }
+
+
+        #heading_1 {
+
+            font-size: 60px;
+
+            font-family: "Times New Roman", Times, serif;
+
+            margin-top: 50px;
+
+            display: block;
+
+            text-align: center;
+        }
+
+
+        #heading_2 {
+
+            font-size: 27px;
+
+            font-family: "Times New Roman", Times, serif;
+
+            margin-top: 50px;
+
+            display: block;
+
+            text-align: center;
+        }
+
+
+        #Clickbtn {
+
+            margin-top: 50px;
+
+            padding: 15px 30px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background: white;
+
+            color: #ff4f9a;
+
+            font-size: 20px;
+
+            font-family: "Poppins", sans-serif;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        #Clickbtn:hover {
+
+            transform: scale(1.08);
+
+        }
+
+
+        #Clickbtn:active {
+
+            transform: scale(0.95);
+
+        }
+
+
+        @keyframes gradientMove {
+
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+
+        }
+
+
+
+        /* ==============================
+           HEART SCREEN
+           ============================== */
+
+        #lovePage {
+
+            display: none;
+
+            width: 100%;
+            height: 100vh;
+
+            background: #101010;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        #pinkboard {
+
+            position: absolute;
+
+            width: 100%;
+
+            height: 100%;
+
+            left: 0;
+
+            top: 0;
+        }
+
+
+        .namebox {
+
+            color: #fff;
+
+            position: absolute;
+
+            top: 50%;
+
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+
+            text-align: center;
+
+            z-index: 10;
+        }
+
+
+        .namebox h1 {
+
+            margin: 0 auto;
+
+            font-family: "Pacifico", cursive;
+
+            font-size: 30px;
+        }
+
+
+        .message {
+
+            font-family: "Archivo", sans-serif;
+
+            font-size: 17px;
+
+            color: #fefefef4;
+
+            margin-top: 10px;
+
+            opacity: 0;
+
+            animation: fadeIn 2.5s ease-in-out 1.5s forwards;
+        }
+
+
+        @keyframes fadeIn {
+
+            to {
+
+                opacity: 1;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =================================
+         FIRST SCREEN
+         ================================= -->
+
+    <div id="sadPage">
+
+        <div>
+
+            <label id="heading_1">
+                This is for you baby ❤️
+            </label>
+
+        </div>
+
+
+        <div>
+
+            <label id="heading_2">
+                I coded this for you baby.
+                I hope you like it 🥰
+            </label>
+
+        </div>
+
+
+        <button id="Clickbtn" onclick="inclick()">
+
+            Click Here Paglu ❤️
+
+        </button>
+
+    </div>
+
+
+
+    <!-- =================================
+         HEART SCREEN
+         ================================= -->
+
+    <div id="lovePage">
+
+        <canvas id="pinkboard"></canvas>
+
+
+        <div class="namebox">
+
+            <h1>
+                Anjal ❤️ Sarina
+            </h1>
+
+            <p class="message">
+                Side by side, always and forever 💕
+                You are my love
+                and everything maya.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================
+         JAVASCRIPT
+         ================================= -->
+
+    <script>
+
+
+        /* =================================
+           CHANGE SCREEN
+           ================================= */
+
+        function inclick() {
+
+            document.getElementById("sadPage").style.display = "none";
+
+            document.getElementById("lovePage").style.display = "block";
+
+            startHeartAnimation();
+
+        }
+
+
+
+        /* =================================
+           HEART PARTICLE SETTINGS
+           ================================= */
+
+        function startHeartAnimation() {
+
+            var settings = {
+
+                particles: {
+
+                    length: 500,
+
+                    duration: 2,
+
+                    velocity: 100,
+
+                    effect: -0.75,
+
+                    size: 30
+
+                }
+
+            };
+
+
+
+            /* =================================
+               REQUEST ANIMATION FRAME
+               ================================= */
+
+            (function () {
+
+                var b = 0;
+
+                var c = [
+                    "ms",
+                    "moz",
+                    "webkit",
+                    "o"
+                ];
+
+                for (
+                    var a = 0;
+                    a < c.length &&
+                    !window.requestAnimationFrame;
+                    ++a
+                ) {
+
+                    window.requestAnimationFrame =
+                        window[c[a] + "RequestAnimationFrame"];
+
+                    window.cancelAnimationFrame =
+                        window[c[a] + "CancelAnimationFrame"] ||
+                        window[c[a] + "CancelRequestAnimationFrame"];
+
+                }
+
+
+                if (!window.requestAnimationFrame) {
+
+                    window.requestAnimationFrame =
+                        function (h, e) {
+
+                            var d = new Date().getTime();
+
+                            var f = Math.max(
+                                0,
+                                16 - (d - b)
+                            );
+
+                            var g = window.setTimeout(
+                                function () {
+
+                                    h(d + f);
+
+                                },
+                                f
+                            );
+
+                            b = d + f;
+
+                            return g;
+
+                        };
+
+                }
+
+
+                if (!window.cancelAnimationFrame) {
+
+                    window.cancelAnimationFrame =
+                        function (d) {
+
+                            clearTimeout(d);
+
+                        };
+
+                }
+
+            })();
+
+
+
+            /* =================================
+               POINT
+               ================================= */
+
+            var Point = (function () {
+
+                function Point(x, y) {
+
+                    this.x =
+                        typeof x !== "undefined"
+                            ? x
+                            : 0;
+
+                    this.y =
+                        typeof y !== "undefined"
+                            ? y
+                            : 0;
+
+                }
+
+
+                Point.prototype.clone =
+                    function () {
+
+                        return new Point(
+                            this.x,
+                            this.y
+                        );
+
+                    };
+
+
+                Point.prototype.length =
+                    function (length) {
+
+                        if (
+                            typeof length ==
+                            "undefined"
+                        ) {
+
+                            return Math.sqrt(
+                                this.x * this.x +
+                                this.y * this.y
+                            );
+
+                        }
+
+                        this.normalize();
+
+                        this.x *= length;
+
+                        this.y *= length;
+
+                        return this;
+
+                    };
+
+
+                Point.prototype.normalize =
+                    function () {
+
+                        var length =
+                            this.length();
+
+                        this.x /= length;
+
+                        this.y /= length;
+
+                        return this;
+
+                    };
+
+
+                return Point;
+
+            })();
+
+
+
+            /* =================================
+               PARTICLE
+               ================================= */
+
+            var Particle = (function () {
+
+                function Particle() {
+
+                    this.position =
+                        new Point();
+
+                    this.velocity =
+                        new Point();
+
+                    this.acceleration =
+                        new Point();
+
+                    this.age = 0;
+
+                }
+
+
+                Particle.prototype.initialize =
+                    function (
+                        x,
+                        y,
+                        dx,
+                        dy
+                    ) {
+
+                        this.position.x = x;
+
+                        this.position.y = y;
+
+                        this.velocity.x = dx;
+
+                        this.velocity.y = dy;
+
+                        this.acceleration.x =
+                            dx *
+                            settings.particles.effect;
+
+                        this.acceleration.y =
+                            dy *
+                            settings.particles.effect;
+
+                        this.age = 0;
+
+                    };
+
+
+                Particle.prototype.update =
+                    function (deltaTime) {
+
+                        this.position.x +=
+                            this.velocity.x *
+                            deltaTime;
+
+                        this.position.y +=
+                            this.velocity.y *
+                            deltaTime;
+
+                        this.velocity.x +=
+                            this.acceleration.x *
+                            deltaTime;
+
+                        this.velocity.y +=
+                            this.acceleration.y *
+                            deltaTime;
+
+                        this.age += deltaTime;
+
+                    };
+
+
+                Particle.prototype.draw =
+                    function (
+                        context,
+                        image
+                    ) {
+
+                        function ease(t) {
+
+                            return --t *
+                                t *
+                                t +
+                                1;
+
+                        }
+
+
+                        var size =
+                            image.width *
+                            ease(
+                                this.age /
+                                settings.particles.duration
+                            );
+
+
+                        context.globalAlpha =
+                            1 -
+                            this.age /
+                            settings.particles.duration;
+
+
+                        context.drawImage(
+
+                            image,
+
+                            this.position.x -
+                                size / 2,
+
+                            this.position.y -
+                                size / 2,
+
+                            size,
+
+                            size
+
+                        );
+
+                    };
+
+
+                return Particle;
+
+            })();
+
+
+
+            /* =================================
+               PARTICLE POOL
+               ================================= */
+
+            var ParticlePool = (function () {
+
+                var particles,
+
+                    firstActive = 0,
+
+                    firstFree = 0,
+
+                    duration =
+                        settings.particles.duration;
+
+
+                function ParticlePool(length) {
+
+                    particles =
+                        new Array(length);
+
+
+                    for (
+                        var i = 0;
+                        i < particles.length;
+                        i++
+                    ) {
+
+                        particles[i] =
+                            new Particle();
+
+                    }
+
+                }
+
+
+                ParticlePool.prototype.add =
+                    function (
+                        x,
+                        y,
+                        dx,
+                        dy
+                    ) {
+
+                        particles[firstFree]
+                            .initialize(
+                                x,
+                                y,
+                                dx,
+                                dy
+                            );
+
+
+                        firstFree++;
+
+
+                        if (
+                            firstFree ==
+                            particles.length
+                        ) {
+
+                            firstFree = 0;
+
+                        }
+
+
+                        if (
+                            firstActive ==
+                            firstFree
+                        ) {
+
+                            firstActive++;
+
+                        }
+
+
+                        if (
+                            firstActive ==
+                            particles.length
+                        ) {
+
+                            firstActive = 0;
+
+                        }
+
+                    };
+
+
+                ParticlePool.prototype.update =
+                    function (deltaTime) {
+
+                        var i;
+
+
+                        if (
+                            firstActive <
+                            firstFree
+                        ) {
+
+                            for (
+                                i = firstActive;
+                                i < firstFree;
+                                i++
+                            ) {
+
+                                particles[i]
+                                    .update(
+                                        deltaTime
+                                    );
+
+                            }
+
+                        }
+
+
+                        if (
+                            firstFree <
+                            firstActive
+                        ) {
+
+                            for (
+                                i = firstActive;
+                                i < particles.length;
+                                i++
+                            ) {
+
+                                particles[i]
+                                    .update(
+                                        deltaTime
+                                    );
+
+                            }
+
+
+                            for (
+                                i = 0;
+                                i < firstFree;
+                                i++
+                            ) {
+
+                                particles[i]
+                                    .update(
+                                        deltaTime
+                                    );
+
+                            }
+
+                        }
+
+
+                        while (
+
+                            particles[firstActive]
+                                .age >= duration
+
+                            &&
+
+                            firstActive !=
+                                firstFree
+
+                        ) {
+
+                            firstActive++;
+
+
+                            if (
+                                firstActive ==
+                                particles.length
+                            ) {
+
+                                firstActive = 0;
+
+                            }
+
+                        }
+
+                    };
+
+
+                ParticlePool.prototype.draw =
+                    function (
+                        context,
+                        image
+                    ) {
+
+                        var i;
+
+
+                        if (
+                            firstActive <
+                            firstFree
+                        ) {
+
+                            for (
+                                i = firstActive;
+                                i < firstFree;
+                                i++
+                            ) {
+
+                                particles[i]
+                                    .draw(
+                                        context,
+                                        image
+                                    );
+
+                            }
+
+                        }
+
+
+                        if (
+                            firstFree <
+                            firstActive
+                        ) {
+
+                            for (
+                                i = firstActive;
+                                i < particles.length;
+                                i++
+                            ) {
+
+                                particles[i]
+                                    .draw(
+                                        context,
+                                        image
+                                    );
+
+                            }
+
+
+                            for (
+                                i = 0;
+                                i < firstFree;
+                                i++
+                            ) {
+
+                                particles[i]
+                                    .draw(
+                                        context,
+                                        image
+                                    );
+
+                            }
+
+                        }
+
+                    };
+
+
+                return ParticlePool;
+
+            })();
+
+
+
+            /* =================================
+               HEART ANIMATION
+               ================================= */
+
+            (function (canvas) {
+
+                var context =
+                    canvas.getContext("2d");
+
+
+                var particles =
+                    new ParticlePool(
+                        settings.particles.length
+                    );
+
+
+                var particleRate =
+                    settings.particles.length /
+                    settings.particles.duration;
+
+
+                var time;
+
+
+
+                /* HEART SHAPE */
+
+                function pointOnHeart(t) {
+
+                    return new Point(
+
+                        160 *
+                        Math.pow(
+                            Math.sin(t),
+                            3
+                        ),
+
+                        130 *
+                            Math.cos(t)
+
+                        -
+
+                        50 *
+                            Math.cos(2 * t)
+
+                        -
+
+                        20 *
+                            Math.cos(3 * t)
+
+                        -
+
+                        10 *
+                            Math.cos(4 * t)
+
+                        +
+
+                        25
+
+                    );
+
+                }
+
+
+
+                /* CREATE HEART PARTICLE IMAGE */
+
+                var image = (function () {
+
+                    var canvas =
+                        document.createElement(
+                            "canvas"
+                        );
+
+
+                    var context =
+                        canvas.getContext(
+                            "2d"
+                        );
+
+
+                    canvas.width =
+                        settings.particles.size;
+
+
+                    canvas.height =
+                        settings.particles.size;
+
+
+
+                    function to(t) {
+
+                        var point =
+                            pointOnHeart(t);
+
+
+                        point.x =
+                            settings.particles.size / 2
+
+                            +
+
+                            (
+                                point.x *
+                                settings.particles.size
+                            ) / 350;
+
+
+                        point.y =
+                            settings.particles.size / 2
+
+                            -
+
+                            (
+                                point.y *
+                                settings.particles.size
+                            ) / 350;
+
+
+                        return point;
+
+                    }
+
+
+
+                    context.beginPath();
+
+
+                    var t = -Math.PI;
+
+
+                    var point = to(t);
+
+
+                    context.moveTo(
+                        point.x,
+                        point.y
+                    );
+
+
+                    while (
+                        t < Math.PI
+                    ) {
+
+                        t += 0.01;
+
+                        point = to(t);
+
+                        context.lineTo(
+                            point.x,
+                            point.y
+                        );
+
+                    }
+
+
+                    context.closePath();
+
+
+                    context.fillStyle =
+                        "#ff30c5";
+
+
+                    context.fill();
+
+
+
+                    var image =
+                        new Image();
+
+
+                    image.src =
+                        canvas.toDataURL();
+
+
+                    return image;
+
+                })();
+
+
+
+                /* RENDER */
+
+                function render() {
+
+                    requestAnimationFrame(
+                        render
+                    );
+
+
+                    var newTime =
+                        new Date()
+                            .getTime() /
+                        1000;
+
+
+                    var deltaTime =
+                        newTime -
+                        (time || newTime);
+
+
+                    time = newTime;
+
+
+                    context.clearRect(
+                        0,
+                        0,
+                        canvas.width,
+                        canvas.height
+                    );
+
+
+                    var amount =
+                        particleRate *
+                        deltaTime;
+
+
+                    for (
+                        var i = 0;
+                        i < amount;
+                        i++
+                    ) {
+
+                        var pos =
+                            pointOnHeart(
+                                Math.PI -
+                                2 *
+                                Math.PI *
+                                Math.random()
+                            );
+
+
+                        var dir =
+                            pos.clone()
+                                .length(
+                                    settings
+                                        .particles
+                                        .velocity
+                                );
+
+
+                        particles.add(
+
+                            canvas.width / 2 +
+                                pos.x,
+
+                            canvas.height / 2 -
+                                pos.y,
+
+                            dir.x,
+
+                            -dir.y
+
+                        );
+
+                    }
+
+
+                    particles.update(
+                        deltaTime
+                    );
+
+
+                    particles.draw(
+                        context,
+                        image
+                    );
+
+                }
+
+
+
+                /* RESIZE */
+
+                function onResize() {
+
+                    canvas.width =
+                        canvas.clientWidth;
+
+                    canvas.height =
+                        canvas.clientHeight;
+
+                }
+
+
+                window.onresize =
+                    onResize;
+
+
+
+                setTimeout(
+                    function () {
+
+                        onResize();
+
+                        render();
+
+                    },
+                    10
+                );
+
+
+            })(
+                document.getElementById(
+                    "pinkboard"
+                )
+            );
+
+        }
+
+    </script>
+
+</body>
+
+</html>
